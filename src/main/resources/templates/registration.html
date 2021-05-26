@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html xmlns:th="http://thymeleaf.org">
 <head>
-    <title>Registration page</title>
+   <title>Registration page</title>
 </head>
 <body>
-<h1>Registration page</h1>
-<form th:action="@{/register}" method="post">
+<h1 style="text-align:center">REGISTRATION PAGE:</h1>
+<form style="text-align:center;" th:action="@{/register}" method="post">
     <label for="username">Username</label>:
     <input type="text" id="username" name="username" /> <br />
-    <label for="password">Password</label>:
+    <label for="password">Password </label>:
     <input type="password" id="password" name="password"/> <br />
-
-    <input type="radio" name="roles" value="ROLE_USER" checked /> User <br/>
+    <br />
+    <input type="radio" name="roles" value="ROLE_USER" checked /> User
     <input type="radio" name="roles" value="ROLE_ADMIN, ROLE_USER" /> Admin <br/>
-
-    <input type="submit" value="Sign up" />
+    <br />
+    <input type="submit" value="REGISTER NOW!" />
+    <br />
+    <h4>After registration, please check your e-mail to verify.</h4>
+    <h4>(To get the Admin role, wait for the moderator to approve it).</h4>
 </form>
 </body>
 </html>
