@@ -50,7 +50,6 @@ public class MainController {
         return "/oauth_login";
     }
 
-
     @RequestMapping("/logout")
     public String logout(){
         return "success";
