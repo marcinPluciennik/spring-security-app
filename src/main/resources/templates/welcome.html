@@ -1,10 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Welcome page</title>
 </head>
 <body>
-$END$
+<div>
+    <h1 style="text-align:center">WELCOME!</h1><br />
+    <h2 style="text-align:center"><a th:href="@{/register}">CREATE AN ACCOUNT</a></h2>
+    <h2 style="text-align:center"><a th:href="@{/login}">SIGN IN WITH EMAIL</a></h2>
+    <h2 style="text-align:center"><a th:href="@{/oauth_login}">SIGN IN WITH GitHub</a></h2>
+</div>
 </body>
 </html>

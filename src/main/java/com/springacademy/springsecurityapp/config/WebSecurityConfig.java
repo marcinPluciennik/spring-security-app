@@ -39,6 +39,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .formLogin().loginPage("/login").defaultSuccessUrl("/test1").permitAll()
                 .and()
-                .logout().logoutSuccessUrl("/logout");
+                .logout().logoutSuccessUrl("/logout")
+                .deleteCookies("JSESSIONID")
+                .and()
+                .oauth2Login().loginPage("/oauth_login").defaultSuccessUrl("/test1").permitAll();
     }
 }

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+    <title>Login page</title>
+</head>
+<body>
+<div>
+    <h1 style="text-align:center">LOGIN WITH:</h1>
+    <p style="text-align:center"  th:each="url : ${urls}">
+        <a th:text="${url.key}" th:href="${url.value}">Client</a>
+    </p>
+</div>
+</body>
+</html>

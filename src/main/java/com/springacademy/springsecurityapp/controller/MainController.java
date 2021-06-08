@@ -25,10 +25,26 @@ public class MainController {
         this.verificationTokenRepo = verificationTokenRepo;
     }
 
+    @RequestMapping("/")
+    public String start(){
+        return "welcome";
+    }
+
+    @RequestMapping("/welcome")
+    public String welcome(){
+        return "welcome";
+    }
+
     @RequestMapping("/login")
     public String login(){
         return "login";
     }
+
+    @RequestMapping("/oauth_login")
+    public String oauthLogin(){
+        return "/oauth_login";
+    }
+
 
     @RequestMapping("/logout")
     public String logout(){
