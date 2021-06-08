@@ -40,6 +40,11 @@ public class MainController {
         return "login";
     }
 
+    @RequestMapping("/failure")
+    public String failure(){
+        return "failure";
+    }
+
     @RequestMapping("/oauth_login")
     public String oauthLogin(){
         return "/oauth_login";

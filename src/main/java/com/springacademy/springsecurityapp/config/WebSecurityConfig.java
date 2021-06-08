@@ -37,7 +37,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/test1").authenticated()
                 .antMatchers("/singup").permitAll()
                 .and()
-                .formLogin().loginPage("/login").defaultSuccessUrl("/test1").permitAll()
+                .formLogin().loginPage("/login").defaultSuccessUrl("/test1").permitAll().failureUrl("/failure")
                 .and()
                 .logout().logoutSuccessUrl("/logout")
                 .deleteCookies("JSESSIONID")
