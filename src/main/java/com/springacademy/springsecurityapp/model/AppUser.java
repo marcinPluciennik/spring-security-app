@@ -8,12 +8,10 @@ import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
-@Entity
+@Entity(name = "APP_USERS")
 public class AppUser implements UserDetails {
 
     @Id
@@ -31,9 +29,25 @@ public class AppUser implements UserDetails {
 
     private boolean isEnabled;
 
+    @OneToMany(
+            targetEntity = Visit.class,
+            mappedBy = "appUser",
+            cascade = CascadeType.ALL,
+            fetch = FetchType.EAGER
+    )
+    private List<Visit> visitList = new ArrayList<>();
+
     @ElementCollection(fetch = FetchType.EAGER)
     private Set<String> roles = new HashSet<>();
 
+
+    public List<Visit> getVisitList() {
+        return visitList;
+    }
+
+    public void setVisitList(List<Visit> visitList) {
+        this.visitList = visitList;
+    }
 
     public Long getId() {
         return id;
@@ -72,6 +86,16 @@ public class AppUser implements UserDetails {
     }
 
     public AppUser() {
+    }
+
+    public AppUser(Long id, String username, String password,
+                   boolean isEnabled, List<Visit> visitList, Set<String> roles) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.isEnabled = isEnabled;
+        this.visitList = visitList;
+        this.roles = roles;
     }
 
     @Override
